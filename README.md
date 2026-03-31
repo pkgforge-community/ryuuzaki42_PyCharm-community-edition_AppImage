@@ -1,7 +1,7 @@
 
 # PyCharm_AppImage
 
-PyCharm is an IDE for programming in Python.
+PyCharm is an IDE for programming in Python
 
 https://www.jetbrains.com/pycharm/
 

@@ -14,7 +14,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v6
-
     - name: Install fuse and libfuse2
       run: sudo apt install fuse libfuse2
 
@@ -24,12 +23,8 @@ jobs:
     #- name: Get appimagetool
     #  run: |
     #    set -x
-    #    #wget -q https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage -O appimagetool-x86_64.AppImage
-    #    #wget -q https://github.com/probonopd/go-appimage/releases/download/continuous/appimagetool-840-x86_64.AppImage -O appimagetool-x86_64.AppImage
-
     #    version_go_appimage=$(wget -q -O - https://api.github.com/repos/probonopd/go-appimage/releases | grep "\"name.*appimagetool-.*-x86_64.AppImage\"" | head -n 1 | cut -d '-' -f2)
     #    echo "version_go_appimage: $version_go_appimage"
-
     #    wget -q "https://github.com/probonopd/go-appimage/releases/download/continuous/appimagetool-$version_go_appimage-x86_64.AppImage" -O appimagetool-x86_64.AppImage
     #    chmod +x appimagetool-x86_64.AppImage
     #    pwd; ls -lah
@@ -46,7 +41,6 @@ jobs:
       shell: bash
       run: |
         set -x
-
         ## From "old" work_dir/ PyCharm-community-edition
         #mv work_dir/ work_dir_2/
 
@@ -125,10 +119,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
           file: "PyCharm*.AppImage; PyCharm*.zsync; PyCharm*.md5"
-          #delete_file: "random-name-*.txt;random-*.txt"
-          release_id: ${{ steps.create_release.outputs.id }}
           #overwrite: true
           verbose: true
-          #tags: true
           draft: false
           default_release_name: "PyCharm V in AppImage"
